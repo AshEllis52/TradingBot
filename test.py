@@ -20,7 +20,7 @@ class API(object):
   if self.current_order is not None:
    self.api.cancael_order(self,curent_order.id)
    
-  delat = target - self.position 
+  delta = target - self.position 
   if delta = 0:
     return
   print(f'Processing the order for {target} shares') 
