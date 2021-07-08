@@ -16,7 +16,7 @@ class API(object):
   except:
    self.postion = 0 
    
- def submit_order(self, target)
+ def submit_order(self, target):
   if self.current_order is not None:
    self.api.cancael_order(self,curent_order.id)
    
