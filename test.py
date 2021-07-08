@@ -8,7 +8,7 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 #@app.route("/")#URL leading to method
 
 account = api.get_account()
-Print(account.status)
+print(account.status)
 
 
 #if __name__ == "__main__":
