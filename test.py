@@ -12,14 +12,15 @@ class API(object):
   self.last_price = 1
   
   try:
-   self.postion = int(self.api.get_postion(self.symbol).qty)
+   self.position = int(self.api.get_position(self.symbol).qty)
   except:
-   self.postion = 0 
+   self.position = 0 
    
  def submit_order(self, target):
   if self.current_order is not None:
    self.api.cancael_order(self,curent_order.id)
    
+  delat = target - self.position 
   if delta = 0:
     return
   print(f'Processing the order for {target} shares') 
