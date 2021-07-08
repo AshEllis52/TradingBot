@@ -7,7 +7,7 @@ api = tradeapi.REST('JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
 #app = Flask(__name__)
 #@app.route("/")#URL leading to method
 
-account = api.getaccount()
+account = api.get_account()
 Print(account.status)
 
 
