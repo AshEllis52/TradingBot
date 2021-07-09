@@ -14,7 +14,7 @@ print(order)
 def buy_aapl(): 
   print('Buying Apple')
   order = api.submit_order(symbol='AAPL', qty=1, side='buy')
-  print(order)
+  #print(order)
   
 schedule.every(1).hours.do(buy_aapl)
 
