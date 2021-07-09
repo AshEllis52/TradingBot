@@ -1,11 +1,11 @@
 from flask import Flask
 import alpaca_trade_api as tradeapi 
 
-app = Flask(__name__)
-@app.route("/")#URL leading to method
-
 alpaca_endpoint = 'https://paper-api.alpaca.markets'
 api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
+
+app = Flask(__name__)
+@app.route("/")#URL leading to method
 
 account = api.get_account()
 print(account)
