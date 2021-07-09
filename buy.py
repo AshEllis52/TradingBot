@@ -9,12 +9,12 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 #print(account)
 
 
-print(order)
+#print(order)
 
 def buy_aapl(): 
   print('Buying Apple')
   order = api.submit_order(symbol='AAPL', qty=1, side='buy')
-  #print(order)
+  print(order)
   
 schedule.every(1).hours.do(buy_aapl)
 
