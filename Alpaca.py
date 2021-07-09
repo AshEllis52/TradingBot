@@ -8,7 +8,7 @@ account = api.get_account()
 print(account)
 
 
-order = api.submit_order(symbol='AAPL', qty=1, side='buy')
+order = api.submit_order(symbol='AAPL', qty=4, side='buy')
 
 print(order)
 
