@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")#URL leading to method
 def acct(): 
  account = api.get_account()
-  print(account)
+ print(account)
 
 
 if __name__ == "__main__":
