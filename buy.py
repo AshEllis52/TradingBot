@@ -16,8 +16,8 @@ def buy_aapl():
   order = api.submit_order(symbol='TSLA', qty=10, side='buy')
   print(order)
   
-#schedule.every(1).hours.do(buy_aapl)
+schedule.every(10).seconds.do(buy_aapl)
 
-#while True:
-  #schedule.run_pending()
-  #time.sleep(1)
+while True:
+  schedule.run_pending()
+  time.sleep(1)
