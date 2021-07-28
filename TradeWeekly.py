@@ -6,10 +6,15 @@ import pandas as pd
 import pandas_datareader.data as web
 import plotly.graph_objects as go 
 import bt as bt
-style.use('ggplot')
+import alpaca_trade_api as tradeapi 
+import schedule, time
+#style.use('ggplot')
 
-app = Flask(__name__)
-@app.route("/")
+#app = Flask(__name__)
+#@app.route("/")
+
+alpaca_endpoint = 'https://paper-api.alpaca.markets'
+api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
 
 def tradeweekly():
   print('Rebalancing Portfolio')
@@ -19,17 +24,24 @@ def tradeweekly():
   df = web.DataReader('TSLA', 'stooq', start, end)
 
   bt_strategy = bt.Strategy('Tarde_Weekly',
-                          [bt.algos.RunWeekly(),
-                           bt.algos.SelectAll(),
+                           [bt.algos.SelectAll(),
                            bt.algos.WeighEqually(),
                            bt.algos.Rebalance()])
+  
+schedule.every(1).days.do(tradeweekly)
 
-  bt_test = bt.Backtest(bt_strategy, df)
+while True:
+  schedule.run_pending()
+  time.sleep(1)
 
-  bt_res = bt.run(bt_test)
+  
 
-  bt_res.plot(title="Backtest result")
-  return plt.show()
+  #bt_test = bt.Backtest(bt_strategy, df)
 
-if __name__ == "__main__":
- app.run(host='0.0.0.0', port='8080') 
+  #bt_res = bt.run(bt_test)
+
+  #bt_res.plot(title="Backtest result")
+  #return plt.show()
+
+#if __name__ == "__main__":
+ #app.run(host='0.0.0.0', port='8080') 
