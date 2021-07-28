@@ -13,11 +13,11 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 
 def buy_aapl(): 
   print('Buying Apple')
-  order = api.submit_order(symbol='AAPL', qty=1, side='buy')
+  order = api.submit_order(symbol='TSLA', qty=10, side='buy')
   print(order)
   
-schedule.every(1).hours.do(buy_aapl)
+#schedule.every(1).hours.do(buy_aapl)
 
-while True:
-  schedule.run_pending()
-  time.sleep(1)
+#while True:
+  #schedule.run_pending()
+  #time.sleep(1)
