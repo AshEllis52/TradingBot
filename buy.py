@@ -16,7 +16,18 @@ def buy_aapl():
   order = api.submit_order(symbol='SPY', qty=10, side='buy')
   print(order)
   
-schedule.every(10).seconds.do(buy_aapl)
+def buy_a1(): 
+  print('Buying Apple')
+  order = api.submit_order(symbol='MSFT', qty=10, side='buy')
+  print(order)
+
+def buy_a2(): 
+  print('Buying Apple')
+  order = api.submit_order(symbol='BA', qty=10, side='buy')
+  print(order)
+  
+  
+schedule.every(10).seconds.do(buy_aapl, buy_a1, buy_a2)
 
 while True:
   schedule.run_pending()
