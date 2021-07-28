@@ -13,7 +13,7 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 
 def buy_aapl(): 
   print('Buying Apple')
-  order = api.submit_order(symbol='TSLA', qty=10, side='buy')
+  order = api.submit_order(symbol='SPY', qty=10, side='buy')
   print(order)
   
 schedule.every(10).seconds.do(buy_aapl)
