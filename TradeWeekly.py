@@ -28,7 +28,7 @@ def tradeweekly():
                            bt.algos.WeighEqually(),
                            bt.algos.Rebalance()])
   
-schedule.every(1).days.do(tradeweekly)
+schedule.every(1).minutes.do(tradeweekly)
 
 while True:
   schedule.run_pending()
