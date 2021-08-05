@@ -10,7 +10,7 @@ API_End = 'https://paper-api.alpaca.markets'
 
 class LongShort:
   def __init__(self):
-    self.alpaca = tradeapi.REST(API_KEY, API_SECRET, APCA_API_BASE_URL, 'v2')
+    self.alpaca = tradeapi.REST(API_Key, API_Secret, API_End, 'v2')
 
     stockUniverse = ['AAPL', 'BA', 'SPY', 'TSLA' ]
     # Format the allStocks variable for use in the class.
