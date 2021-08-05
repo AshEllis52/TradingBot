@@ -66,6 +66,51 @@ class LongShort:
             (target=self.submitOrder(qty, position.symbol, orderSide, respSO))
             tSubmitOrder.start()
             tSubmitOrder.join()
+            
+        #Run script again after market close for next trading day
+        print('Sleeping until market close')
+        time.sleep(60 * 15)
+       else:
+        tRebalance = threading.Thread
+        (target=self.rebalance)
+        tRebalance.start()
+        tRebalance.join()
+        time.sleep(60)
+
+  def awaitMarketOpen(self):
+    isOpen = self.alpaca.get_clock()
+    while(not isOpen):
+      clock = self.alpaca.get_clock()
+      openingTime = clock.next_open.replace
+      (tzinfo=datetime.timezone.utc).timestamp()
+      currTime = clock.timestamp.replace
+      (tzinfo=datetime.timezone.utc).timestamp()
+      timeToOpen = int((openingTime - currTime) / 60)
+      print(str(timeToOpen) + 'minutes till market open')
+      time.sleep(60)
+      isOpen = self.alpaca.get_clock().is_open
+      
+  def rebalance(self):
+    tRerank = threading.Thread(target=self.rerank)
+    tRerank.start()
+    tRerank.join()
+    
+    #clear orders again
+    orders = self.alpaca.list_orders(status='open')
+    for order in orders:
+      self.alpaca.cancel_order(order.id)
+      
+    print('We are taking a long position in:' + str(self.long))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
