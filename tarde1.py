@@ -174,6 +174,11 @@ class LongShort:
           executed[0].append(position.symbol)
           self.blacklist.add(position.symbol)
 
+   # Re-rank all stocks to adjust longs and shorts.
+  def rerank(self):
+    tRank = threading.Thread(target=self.rank)
+    tRank.start()
+    tRank.join()
 
 
   # Submit an order if quantity is above 0.
