@@ -99,8 +99,7 @@ class LongShort:
     for order in orders:
       self.alpaca.cancel_order(order.id)
 
-    print("We are taking a long position in: " + str(self.long))
-    print("We are taking a short position in: " + str(self.short))
+   
     # Remove positions that are no longer in the short or long list, and make a list of positions that do not need to change.  Adjust position quantities if needed.
     executed = [[], []]
     positions = self.alpaca.list_positions()
