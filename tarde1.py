@@ -29,7 +29,65 @@ class LongShort:
     self.shortAmount = 0
     self.timeToClose = None
 
- 
+  def run(self):
+    # First, cancel any existing orders so they don't impact our buying power.
+    orders = self.alpaca.list_orders(status="open")
+    for order in orders:
+      self.alpaca.cancel_order(order.id)
+
+    # Wait for market to open.
+    print("Waiting for market to open...")
+    tAMO = threading.Thread(target=self.awaitMarketOpen)
+    tAMO.start()
+    tAMO.join()
+    print("Market opened.")
+
+    # Rebalance the portfolio every minute, making necessary trades.
+    while True:
+
+      # Figure out when the market will close so we can prepare to sell beforehand.
+      clock = self.alpaca.get_clock()
+      closingTime = clock.next_close.replace(tzinfo=datetime.timezone.utc).timestamp()
+      currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
+      self.timeToClose = closingTime - currTime
+
+      if(self.timeToClose < (60 * 15)):
+        # Close all positions when 15 minutes til market close.
+        print("Market closing soon.  Closing positions.")
+
+        positions = self.alpaca.list_positions()
+        for position in positions:
+          if(position.side == 'long'):
+            orderSide = 'sell'
+          else:
+            orderSide = 'buy'
+          qty = abs(int(float(position.qty)))
+          respSO = []
+          tSubmitOrder = threading.Thread(target=self.submitOrder(qty, position.symbol, orderSide, respSO))
+          tSubmitOrder.start()
+          tSubmitOrder.join()
+
+        # Run script again after market close for next trading day.
+        print("Sleeping until market close (15 minutes).")
+        time.sleep(60 * 15)
+      else:
+        # Rebalance the portfolio.
+        tRebalance = threading.Thread(target=self.rebalance)
+        tRebalance.start()
+        tRebalance.join()
+        time.sleep(60)
+
+  # Wait for market to open.
+  def awaitMarketOpen(self):
+    isOpen = self.alpaca.get_clock().is_open
+    while(not isOpen):
+      clock = self.alpaca.get_clock()
+      openingTime = clock.next_open.replace(tzinfo=datetime.timezone.utc).timestamp()
+      currTime = clock.timestamp.replace(tzinfo=datetime.timezone.utc).timestamp()
+      timeToOpen = int((openingTime - currTime) / 60)
+      print(str(timeToOpen) + " minutes til market open.")
+      time.sleep(60)
+      isOpen = self.alpaca.get_clock().is_open
 
   def rebalance(self):
     tRerank = threading.Thread(target=self.rerank)
@@ -116,7 +174,8 @@ class LongShort:
           executed[0].append(position.symbol)
           self.blacklist.add(position.symbol)
 
-   # Re-rank all stocks to adjust longs and shorts.
+
+  # Re-rank all stocks to adjust longs and shorts.
   def rerank(self):
     tRank = threading.Thread(target=self.rank)
     tRank.start()
@@ -156,4 +215,4 @@ class LongShort:
 
 # Run the LongShort class
 ls = LongShort()
-ls.rebalance()
+ls.run()
