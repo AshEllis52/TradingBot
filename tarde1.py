@@ -156,4 +156,4 @@ class LongShort:
 
 # Run the LongShort class
 ls = LongShort()
-ls.run()
+ls.rebalance()
