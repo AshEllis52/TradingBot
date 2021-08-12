@@ -37,9 +37,9 @@ class LongShort:
 
 def run(self): #run method used to run the entire class on last line 
 
- df['SMA'] = talib.SMA(stock_data['Close'], timeperiod = 50)
+ df['SMA']=talib.SMA(stock_data['Close'], timeperiod = 50)
  # Calculate the EMA
- df['EMA'] = talib.EMA(stock_data['Close'], timeperiod = 50)
+ df['EMA']=talib.EMA(stock_data['Close'], timeperiod = 50)
 
  signal[SMA >EMA] = 1
  signal[EMA < SMA ] = -1
