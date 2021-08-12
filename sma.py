@@ -2,6 +2,7 @@ import alpaca_trade_api as tradeapi
 import threading
 import time
 import datetime
+import datetime as dt
 import bt 
 
 API_Key = 'PKZMPG3T5B4KNAFUTRF3'
