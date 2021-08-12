@@ -40,17 +40,17 @@ class LongShort:
     
   def run(self): #run method used to run the entire class on last line 
 
-   df['SMA'] = talib.SMA(stock_data['Close'],timeperiod = 50)
+   df['SMA'] = talib.SMA(df['Close'],timeperiod = 50)
    # Calculate the EMA
-   df['EMA'] = talib.EMA(stock_data['Close'],timeperiod = 50)
+   df['EMA'] = talib.EMA(df['Close'],timeperiod = 50)
    signal[SMA >EMA] = 1
    signal[EMA < SMA ] = -1
    # Define the strategy
    bt_strategy = bt.Strategy('EMA_crossover',[bt.algos.WeighTarget(signal), bt.algos.Rebalance()])
-   Rebalance = threading.Thread(target=self.rebalance) 
-   Rebalance.start()
-   Rebalance.join()
-   time.sleep(60) # sleep for 60 seconds so portfolio is rebalanced every minute 
+   #Rebalance = threading.Thread(target=self.rebalance) 
+   #Rebalance.start()
+   #Rebalance.join()
+   #time.sleep(60) # sleep for 60 seconds so portfolio is rebalanced every minute 
 
 ls = LongShort()
 ls.run()
