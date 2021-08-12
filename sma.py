@@ -49,10 +49,11 @@ class LongShort:
    # Define the strategy
    #bt_strategy = bt.Strategy('EMA_crossover',[bt.algos.WeighTarget(signal), bt.algos.Rebalance()])
    # Calculate the EMA
-   ema[] = talib.EMA(df['Close'], timeperiod=20)
+   sma = df.rolling(20).mean()
+   sma['Close'] = talib.EMA(df['Close'], timeperiod=20)
    # Define the strategy
    bt_strategy = bt.Strategy('AboveEMA',
-                          [bt.algos.SelectWhere(df > ema),
+                          [bt.algos.SelectWhere(df > sma),
                            bt.algos.WeighEqually(),
                            bt.algos.Rebalance()])
 
