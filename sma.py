@@ -4,6 +4,7 @@ import time
 import datetime
 import datetime as dt
 import bt 
+import pandas_datareader.data as web
 
 API_Key = 'PKZMPG3T5B4KNAFUTRF3'
 API_Secret = 'JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN'
