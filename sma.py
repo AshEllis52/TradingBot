@@ -21,7 +21,7 @@ class LongShort:
 
     start = dt.datetime(2000, 1, 1)
     end = dt.datetime(2021,12,31)
-    df = web.DataReader('TSLA', 'stooq', start, end)
+    df[] = web.DataReader('TSLA', 'stooq', start, end)
     
     self.long = [] #list
     self.short = [] #list
