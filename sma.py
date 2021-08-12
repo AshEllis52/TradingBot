@@ -55,9 +55,9 @@ class LongShort:
       except:
         print("Order of | " + str(qty) + " " + stock + " " + side + " | did not go through.")
         resp.append(False)
-    else:
-      print("Quantity is 0, order of | " + str(qty) + " " + stock + " " + side + " | not completed.")
-      resp.append(True)     
+      else:
+       print("Quantity is 0, order of | " + str(qty) + " " + stock + " " + side + " | not completed.")
+       resp.append(True)     
 
 ls = LongShort()
 ls.run()
