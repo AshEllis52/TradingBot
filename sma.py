@@ -41,17 +41,20 @@ class LongShort:
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
-   df['SMA'] = talib.SMA(df['Close'],timeperiod = 50)
+   #df['SMA'] = talib.SMA(df['Close'],timeperiod = 50)
    # Calculate the EMA
-   df['EMA'] = talib.EMA(df['Close'],timeperiod = 50)
-   signal[SMA >EMA] = 1
-   signal[EMA < SMA ] = -1
+   #df['EMA'] = talib.EMA(df['Close'],timeperiod = 50)
+   #signal[SMA > EMA] = 1
+   #signal[EMA < SMA ] = -1
    # Define the strategy
-   bt_strategy = bt.Strategy('EMA_crossover',[bt.algos.WeighTarget(signal), bt.algos.Rebalance()])
-   #Rebalance = threading.Thread(target=self.rebalance) 
-   #Rebalance.start()
-   #Rebalance.join()
-   #time.sleep(60) # sleep for 60 seconds so portfolio is rebalanced every minute 
+   #bt_strategy = bt.Strategy('EMA_crossover',[bt.algos.WeighTarget(signal), bt.algos.Rebalance()])
+   # Calculate the EMA
+   ema['Close'] = talib.EMA(df['Close'], timeperiod=20)
+   # Define the strategy
+   bt_strategy = bt.Strategy('AboveEMA',
+                          [bt.algos.SelectWhere(price_data > ema),
+                           bt.algos.WeighEqually(),
+                           bt.algos.Rebalance()])
 
 ls = LongShort()
 ls.run()
