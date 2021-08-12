@@ -45,9 +45,9 @@ class LongShort:
    sma = df.rolling(20).mean()
    sma['Close'] = talib.EMA(df['Close'], timeperiod=20)
    # Define the strategy
-   bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
+   #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
     
-    if(df > sma) 
+   if(df > sma): 
       try:
         self.alpaca.submit_order(stock, qty, side, "market", "day")
         print("Market order of | " + str(qty) + " " + stock + " " + side + " | completed.")
