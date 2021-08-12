@@ -41,8 +41,8 @@ def run(self): #run method used to run the entire class on last line
  # Calculate the EMA
  df['EMA']=talib.EMA(stock_data['Close'],timeperiod =50)
 
- signal[SMA >EMA]= 1
- signal[EMA < SMA ]= -1
+ signal[SMA >EMA]=1
+ signal[EMA < SMA ]=-1
  # Define the strategy
  bt_strategy = bt.Strategy('EMA_crossover', 
                           [bt.algos.WeighTarget(signal),
