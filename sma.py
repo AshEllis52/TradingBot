@@ -41,21 +41,45 @@ class LongShort:
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
-   #df['SMA'] = talib.SMA(df['Close'],timeperiod = 50)
+   # Calculate the EMA
+   sma = df.rolling(20).mean()
+   sma['Close'] = talib.EMA(df['Close'], timeperiod=20)
+   # Define the strategy
+   bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
+    
+    if(df > sma):
+      try:
+        self.alpaca.submit_order(stock, qty, side, "market", "day")
+        print("Market order of | " + str(qty) + " " + stock + " " + side + " | completed.")
+        resp.append(True)
+      except:
+        print("Order of | " + str(qty) + " " + stock + " " + side + " | did not go through.")
+        resp.append(False)
+    else:
+      print("Quantity is 0, order of | " + str(qty) + " " + stock + " " + side + " | not completed.")
+      resp.append(True)     
+
+ls = LongShort()
+ls.run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#df['SMA'] = talib.SMA(df['Close'],timeperiod = 50)
    # Calculate the EMA
    #df['EMA'] = talib.EMA(df['Close'],timeperiod = 50)
    #signal[SMA > EMA] = 1
    #signal[EMA < SMA ] = -1
    # Define the strategy
    #bt_strategy = bt.Strategy('EMA_crossover',[bt.algos.WeighTarget(signal), bt.algos.Rebalance()])
-   # Calculate the EMA
-   sma = df.rolling(20).mean()
-   sma['Close'] = talib.EMA(df['Close'], timeperiod=20)
-   # Define the strategy
-   bt_strategy = bt.Strategy('AboveEMA',
-                          [bt.algos.SelectWhere(df > sma),
-                           bt.algos.WeighEqually(),
-                           bt.algos.Rebalance()])
-
-ls = LongShort()
-ls.run()
