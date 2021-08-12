@@ -48,16 +48,10 @@ class LongShort:
    #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
     
    if(df > sma): 
-      try:
-        self.alpaca.submit_order(stock, qty, side, "market", "day")
-        print("Market order of | " + str(qty) + " " + stock + " " + side + " | completed.")
-        resp.append(True)
-      except:
-        print("Order of | " + str(qty) + " " + stock + " " + side + " | did not go through.")
-        resp.append(False)
-      else:
-       print("Quantity is 0, order of | " + str(qty) + " " + stock + " " + side + " | not completed.")
-       resp.append(True)     
+        self.alpaca.submit_order(df, 1, buy, "market", "day")
+        print("Market order of | " + str(1) + " " + df + " " + buy + " | completed.")
+       
+       
 
 ls = LongShort()
 ls.run()
