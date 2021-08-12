@@ -44,9 +44,7 @@ def run(self): #run method used to run the entire class on last line
  signal[SMA >EMA] = 1
  signal[EMA < SMA ] = -1
  # Define the strategy
- bt_strategy = bt.Strategy('EMA_crossover', 
-                          [bt.algos.WeighTarget(signal),
-                           bt.algos.Rebalance()])
+ bt_strategy = bt.Strategy('EMA_crossover',[bt.algos.WeighTarget(signal), bt.algos.Rebalance()])
 
 
 ls = LongShort()
