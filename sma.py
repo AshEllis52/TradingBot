@@ -29,7 +29,7 @@ class LongShort:
     
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
-   df = abs(web.DataReader('TSLA', 'stooq', start, end)) 
+   df = web.DataReader('TSLA', 'stooq', start, end)
    df.to_csv('tsla.csv')
    df1 = pd.read_csv('tsla.csv', parse_dates=True, index_col=0)
    # Calculate the EMA
