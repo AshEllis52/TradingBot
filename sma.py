@@ -33,6 +33,8 @@ class LongShort:
    # Calculate the EMA
    #sma = df.rolling(20).mean()
    #ema = df.rolling(50).mean()
+   sma = []
+   ema = []
    sma['Close'] = talib.SMA(df['Close'], timeperiod = 20)
    ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
   
