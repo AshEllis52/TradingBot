@@ -43,15 +43,17 @@ class LongShort:
    df = web.DataReader('TSLA', 'stooq', start, end)
    # Calculate the EMA
    sma = df.rolling(20).mean()
-   sma['Close'] = talib.EMA(df['Close'], timeperiod=20)
+   ema = df.rolling(50).mean()
+   sma['Close'] = talib.EMA(df['Close'], timeperiod = 20)
+   ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
    # Define the strategy
    #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
     
-   if(df > sma): 
-        self.alpaca.submit_order(df, 1, buy, "market", "day")
-        print("Market order of | " + str(1) + " " + df + " " + buy + " | completed.")
-       
-       
+   if(sma > ema): 
+      print('SMA has crossed EMA')
+      order = api.submit_order(symbol='AAPL', qty=1, side='buy')
+      print(order)
+      
 
 ls = LongShort()
 ls.run()
