@@ -38,7 +38,7 @@ class LongShort:
   
     
   
-   if(sma.all() > ema.all()): 
+   if(sma > ema).any(): 
       print('SMA has crossed EMA')
       order = api.submit_order(symbol='TSLA', qty=1, side='buy')
       print(order)
