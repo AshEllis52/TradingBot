@@ -7,6 +7,7 @@ import bt
 import pandas 
 import pandas_datareader.data as web
 import talib
+import signal
 
 API_Key = 'PKZMPG3T5B4KNAFUTRF3'
 API_Secret = 'JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN'
