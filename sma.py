@@ -36,9 +36,9 @@ class RSI:
     print('1')
     #order = api.submit_order(symbol='TSLA', qty=1, side='buy')
     #rint(order)
-   elif(signal == 2)
+   elif(signal == 2):
     print('2')
-   elif(signal == 3)
+   elif(signal == 3):
     print('3')
     
     
