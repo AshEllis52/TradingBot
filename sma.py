@@ -23,13 +23,9 @@ class RSI:
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
    signal = 0
-   df['RSI'] = talib.RSI(df['Close'])
-   if (df['RSI'] > 70):
-      signal = 1
-   elif (df['RSI'] < 30):
-      signal = 2
-   elif [(df['RSI'] <= 70) & (df['RSI'] >= 30)]:
-      signal = 3
+   signal[df['RSI'] > 70] = -1
+   signal[df['RSI'] < 30] = 1
+   signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 0
    
    
    if(signal == 1): 
@@ -44,9 +40,9 @@ class RSI:
     
     
    
-   #signal[df['RSI'] > 70] = -1
-   #signal[df['RSI'] < 30] = 1
-   #signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 0
+   ssignal[df['RSI'] > 70] = -1
+   signal[df['RSI'] < 30] = 1
+   signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 0
 
 rsi = RSI()
 rsi.run()
