@@ -38,7 +38,7 @@ class LongShort:
    # Define the strategy
    #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
     
-   if(sma > ema): 
+   if(sma > 1): 
       print('SMA has crossed EMA')
       order = api.submit_order(symbol='AAPL', qty=1, side='buy')
       print(order)
