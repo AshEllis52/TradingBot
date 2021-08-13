@@ -40,11 +40,11 @@ class LongShort:
   
     
   
-    
-   if(smaP > emaP): 
-      print('SMA has crossed EMA')
-      order = api.submit_order(symbol='TSLA', qty=1, side='buy')
-      print(order)
+   return print (emaP, smaP) 
+   #if(smaP > emaP): 
+      #print('SMA has crossed EMA')
+      #order = api.submit_order(symbol='TSLA', qty=1, side='buy')
+      #print(order)
       
 
 ls = LongShort()
