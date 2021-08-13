@@ -4,6 +4,7 @@ import time
 import datetime
 import datetime as dt
 import bt 
+import pandas 
 import pandas_datareader.data as web
 import talib
 
@@ -22,19 +23,7 @@ class LongShort:
     for stock in stockUniverse: #python for loop, doesnt matter what is used for 'stock' on the left, loop will itierate through stockUniverse  
       self.allStocks.append([stock, 0]) #.append adds an element to the end of a list, in this case it is adding all elements of stockUniverse to allStocks
 
-    
-    
-    self.long = [] #list
-    self.short = [] #list
-    self.qShort = None #none = null type
-    self.qLong = None   #none = null type
-    self.adjustedQLong = None  #none = null type
-    self.adjustedQShort = None #none = null type
-    self.blacklist = set() #=set() creates a set
-    self.longAmount = 0 # equal 0
-    self.shortAmount = 0 # equal 0
-    self.timeToClose = None #none = null type
-    #Variables added for use later
+   
    
   def run(self): #run method used to run the entire class on last line 
     
@@ -44,8 +33,8 @@ class LongShort:
    # Calculate the EMA
    sma = df.rolling(20).mean()
    ema = df.rolling(50).mean()
-   #sma['Close'] = talib.EMA(df['Close'], timeperiod = 20)
-   #ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
+   sma['Close'] = talib.EMA(df['Close'], timeperiod = 20)
+   ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
    # Define the strategy
    #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
     
