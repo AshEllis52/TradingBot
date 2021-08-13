@@ -37,15 +37,14 @@ class LongShort:
    smaP = sma['Close'].pct_change() * 100
    #sma['Close'] = talib.EMA(df['Close'], timeperiod = 20)
    #ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
-   # Define the strategy
-   #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
+  
     
-   return print(smaP, emaP) 
+  
     
-   #if(sma > ema): 
-      #print('SMA has crossed EMA')
-      #order = api.submit_order(symbol='AAPL', qty=1, side='buy')
-      #print(order)
+   if(sma > ema): 
+      print('SMA has crossed EMA')
+      order = api.submit_order(symbol='TSLA', qty=1, side='buy')
+      print(order)
       
 
 ls = LongShort()
