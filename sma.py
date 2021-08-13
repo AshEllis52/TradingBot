@@ -22,18 +22,18 @@ class RSI:
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
-   signal[df['RSI'] > 70] = 1
-   signal[df['RSI'] < 30] = 2
-   signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 3
+   self.signal[df['RSI'] > 70] = 1
+   self.signal[df['RSI'] < 30] = 2
+   self.signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 3
    
    
-   if(signal == 1): 
+   if(self.signal == 1): 
     print('1')
     #order = api.submit_order(symbol='TSLA', qty=1, side='buy')
     #rint(order)
-   elif(signal == 2):
+   elif(self.signal == 2):
     print('2')
-   elif(signal == 3):
+   elif(self.signal == 3):
     print('3')
        
 rsi = RSI()
