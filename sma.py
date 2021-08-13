@@ -1,4 +1,4 @@
-import alpaca_trade_api as tradeapi
+import alpaca_trade_api as api
 import threading
 import time
 import datetime
@@ -15,7 +15,7 @@ API_End = 'https://paper-api.alpaca.markets'
 
 class EmaSma:
   def __init__(self):
-    self.alpaca = tradeapi.REST(API_Key, API_Secret, API_End, 'v2')
+    self.alpaca = api.REST(API_Key, API_Secret, API_End, 'v2')
 
   def run(self):  
    start = dt.datetime(2000, 1, 1)
@@ -34,8 +34,7 @@ class EmaSma:
     order = api.submit_order(symbol='TSLA', qty=1, side='buy')
     print(order)
    
-   else:
-      pass 
+
 
 es = EmaSma()
 es.run()
