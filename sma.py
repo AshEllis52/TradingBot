@@ -24,8 +24,8 @@ class EmaSma:
    # Calculate the EMA
    #sma = df.rolling(20).mean()
    #ema = df.rolling(20).mean()
-   sma = talib.SMA(df['Close'], timeperiod = 20)
-   ema = talib.EMA(df['Close'], timeperiod = 20 )
+   sma = talib.SMA(df['Close'], timeperiod = 20).all()
+   ema = talib.EMA(df['Close'], timeperiod = 20 ).all()
    
     
    
