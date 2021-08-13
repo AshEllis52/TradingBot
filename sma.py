@@ -28,7 +28,7 @@ class RSI:
       signal = 1
    elif (df['RSI'] < 30):
       signal = 2
-   elif (df['RSI'] <= 70) & (df['RSI'] >= 30)]:
+   elif (df['RSI'] <= 70) & (df['RSI'] >= 30)]
       signal = 3
    
    
