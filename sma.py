@@ -24,11 +24,11 @@ class RSI:
    df = web.DataReader('TSLA', 'stooq', start, end)
    signal = 0
    df['RSI'] = talib.RSI(df['Close'])
-    if (df['RSI'] > 70):
+   if (df['RSI'] > 70):
       signal = 1
-    elif (df['RSI'] < 30):
+   elif (df['RSI'] < 30):
       signal = 2
-    elif (df['RSI'] <= 70) & (df['RSI'] >= 30)]:
+   elif (df['RSI'] <= 70) & (df['RSI'] >= 30)]:
       signal = 3
    
    
