@@ -31,9 +31,9 @@ class LongShort:
    end = dt.datetime(2021,12,31)
    df = abs(web.DataReader('TSLA', 'stooq', start, end)) 
    # Calculate the EMA
-   sma = df.rolling(20).mean()
-   ema = df.rolling(50).mean()
-   sma['Close'] = talib.EMA(df['Close'], timeperiod = 20)
+   #sma = df.rolling(20).mean()
+   #ema = df.rolling(50).mean()
+   sma['Close'] = talib.SMA(df['Close'], timeperiod = 20)
    ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
   
     
