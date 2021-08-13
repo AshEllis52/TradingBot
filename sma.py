@@ -33,12 +33,14 @@ class LongShort:
    # Calculate the EMA
    sma = df.rolling(20).mean()
    ema = df.rolling(50).mean()
+   emaP = ema['Close'].pct_change() * 100
+   smaP = sma['Close'].pct_change() * 100
    #sma['Close'] = talib.EMA(df['Close'], timeperiod = 20)
    #ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
    # Define the strategy
    #bt_strategy = bt.Strategy('AboveEMA', [bt.algos.SelectWhere(df > sma), bt.algos.WeighEqually(), bt.algos.Rebalance()]
     
-   return print(sma, ema) 
+   return print(smaP, emaP) 
     
    #if(sma > ema): 
       #print('SMA has crossed EMA')
