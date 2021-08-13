@@ -30,15 +30,17 @@ class LongShort:
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = abs(web.DataReader('TSLA', 'stooq', start, end)) 
+   df.to_csv('tsla.csv')
+   df1 = pd.read_csv('tsla.csv', parse_dates=True, index_col=0)
    # Calculate the EMA
-   sma = df.rolling(20).mean()
-   ema = df.rolling(50).mean()
-   sma['Close'] = talib.SMA(df['Close'], timeperiod = 20)
-   ema['Close'] = talib.EMA(df['Close'], timeperiod = 50 )
+   sma = df1.rolling(20).mean()
+   ema = df1.rolling(50).mean()
+   sma['Close'] = talib.SMA(df1['Close'], timeperiod = 20)
+   ema['Close'] = talib.EMA(df1['Close'], timeperiod = 50 )
   
     
   
-   if(sma > ema).all(): 
+   if(sma > ema): 
       print('SMA has crossed EMA')
       order = api.submit_order(symbol='TSLA', qty=1, side='buy')
       print(order)
