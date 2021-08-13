@@ -48,9 +48,8 @@ class RSI:
    #signal[df['RSI'] < 30] = 1
    #signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 0
 
-RSI = rsi()
+rsi = RSI()
 rsi.run()
-
 
 
 
