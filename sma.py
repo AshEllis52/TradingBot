@@ -26,7 +26,7 @@ class RSI:
    signal[df_RSI.isnull()] = 0
    signal[df_RSI > 70] = 1
    signal[df_RSI < 30] = 2
-   signal[(df_RSI <= 70) & (df_RSI§ >= 30)] = 3
+   signal[(df_RSI <= 70) & (df_RSI >= 30)] = 3
    
    
    if(signal == 1): 
