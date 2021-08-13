@@ -28,7 +28,7 @@ class EmaSma:
 
    
    
-   if(signal[] == 0): 
+   if(signal == 0): 
     print('SMA has crossed EMA')
     order = api.submit_order(symbol='TSLA', qty=1, side='buy')
     print(order)
