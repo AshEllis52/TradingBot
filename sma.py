@@ -21,15 +21,14 @@ class EmaSma:
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
-   # Calculate the EMA
-   #sma = df.rolling(20).mean()
-   #ema = df.rolling(20).mean()
-   sma = talib.SMA(df['Close'], timeperiod = 20).all()
-   ema = talib.EMA(df['Close'], timeperiod = 20 ).all()
+   df['RSI'] = talib.RSI(df['Close'])
+   signal[df['RSI'] > 70] = -1
+   signal[df['RSI']  < 30] = 1
+   signal[(df['RSI']  <= 70) & (df['RSI']  >= 30)] = 0
+
    
-    
    
-   if(ema > sma): 
+   if(signal == 0): 
     print('SMA has crossed EMA')
     order = api.submit_order(symbol='TSLA', qty=1, side='buy')
     print(order)
