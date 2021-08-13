@@ -17,23 +17,22 @@ API_End = 'https://paper-api.alpaca.markets'
 class RSI:
   def __init__(self):
     self.alpaca = api.REST(API_Key, API_Secret, API_End, 'v2')
-    self.signal = set()
   def run(self):  
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
-   self.signal[df['RSI'] > 70] = 1
-   self.signal[df['RSI'] < 30] = 2
-   self.signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 3
+   signal[df['RSI'] > 70] = 1
+   signal[df['RSI'] < 30] = 2
+   signal[(df['RSI'] <= 70) & (df['RSI'] >= 30)] = 3
    
    
-   if(self.signal == 1): 
+   if(signal == 1): 
     print('1')
-    #order = api.submit_order(symbol='TSLA', qty=1, side='buy')
+    #order = self.api.submit_order(symbol='TSLA', qty=1, side='buy')
     #rint(order)
-   elif(self.signal == 2):
+   elif(signal == 2):
     print('2')
-   elif(self.signal == 3):
+   elif(signal == 3):
     print('3')
        
 rsi = RSI()
