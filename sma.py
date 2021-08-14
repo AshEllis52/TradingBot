@@ -20,6 +20,9 @@ class RSI:
    end = date.today()
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
+    
+   print (df_RSI) 
+  
    df_RSI.to_numpy()  
    
    if((df_RSI.values[-1]) > 70):
