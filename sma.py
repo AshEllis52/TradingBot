@@ -21,9 +21,9 @@ class RSI:
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
     
-   print (df_RSI) 
+   print (df_RSI.head) 
    df_RSI.to_numpy()  
-   print (df_RSI.values[1]) 
+   print (df_RSI.values[13]) 
   
    if((df_RSI.values[-1]) > 70):
     print ('1')
