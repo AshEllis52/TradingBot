@@ -9,7 +9,7 @@ import talib
 API_Key = 'PKZMPG3T5B4KNAFUTRF3'
 API_Secret = 'JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN'
 API_End = 'https://paper-api.alpaca.markets'
-
+api = api.REST(API_Key, API_Secret, API_End, 'v2')
 
 
 class RSI:
