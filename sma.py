@@ -24,7 +24,7 @@ class RSI:
   
    if((df_RSI.values[14]) > 70):
     print('Stock is over bought, selling postion') 
-    self.api.submit_order(symbol='TSLA', qty=10, side='sell')
+    api.submit_order(symbol='TSLA', qty=10, side='sell')
     
    elif((df_RSI.values[14]) < 30):
     print('Stock is over sold, buying postion') 
