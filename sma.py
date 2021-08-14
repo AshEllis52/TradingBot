@@ -44,11 +44,7 @@ rsi.run()
     #rint(order)
 
 
- signal = df_RSI.copy()
-   signal[df_RSI.isnull()] = 0
-   signal[df_RSI > 70] = 1
-   signal[df_RSI < 30] = 2
-   signal[(df_RSI <= 70) & (df_RSI >= 30)] = 3
+ 
 
 
 
