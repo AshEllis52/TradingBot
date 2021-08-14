@@ -34,7 +34,7 @@ class RSI:
     print ('1')
    elif((df_RSI.values[-1]) < 30):
     print ('2')
-   elif[((df_RSI.values[-1]) <= 70) & ((df_RSI.values[-1]) >= 30)] 
+   elif[((df_RSI.values[-1]) <= 70) & ((df_RSI.values[-1]) >= 30)]:
     print ('3')
        
 rsi = RSI()
