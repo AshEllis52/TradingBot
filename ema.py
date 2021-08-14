@@ -17,7 +17,7 @@ class EMA:
    df = web.DataReader('AAPL', 'stooq', start, end)
    df_EMAS = talib.EMA(df['Close'], timeperiod = 12)
    df_EMAL = talib.EMA(df['Close'], timeperiod = 26)
-   adx = talib.ADX(df['High'], stock_data['Low'], stock_data['Close'], timeperiod = 21)
+   adx = talib.ADX(df['High'], df['Low'], df['Close'], timeperiod = 21)
    adx.to_numpy()
    df_EMAS.to_numpy()  
    df_EMAL.to_numpy()
