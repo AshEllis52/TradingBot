@@ -27,8 +27,8 @@ class RSI:
     print ('1')
    elif(pd.Series(df_RSI < 30).all()):
     print ('2')
-   elif([(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].any()): 
-    print ('3')
+   #elif([(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].any()): 
+    #print ('3')
        
 rsi = RSI()
 rsi.run()
