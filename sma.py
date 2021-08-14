@@ -16,7 +16,7 @@ class RSI:
   def __init__(self):
     self.alpaca = api.REST(API_Key, API_Secret, API_End, 'v2')
   def run(self):  
-   start = dt.datetime(2000, 1, 1)
+   start = dt.datetime(2021, 1, 1)
    end = date.today()
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
