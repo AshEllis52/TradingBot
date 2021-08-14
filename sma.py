@@ -22,9 +22,9 @@ class RSI:
    df_RSI = talib.RSI(df['Close'])
     
    print (df_RSI) 
-  
    df_RSI.to_numpy()  
-   
+   print (df_RSI.values[-1]) 
+  
    if((df_RSI.values[-1]) > 70):
     print ('1')
    elif((df_RSI.values[-1]) < 30):
