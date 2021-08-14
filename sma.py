@@ -35,8 +35,7 @@ rsi = RSI()
 rsi.run()
 
 
- order = self.api.submit_order(symbol='TSLA', qty=1, side='buy')
-    print(order)
+
 
 
  
