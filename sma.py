@@ -22,7 +22,7 @@ class RSI:
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
-   print(df_RSI)
+   
    
    if(pd.Series(df_RSI > 0).all()):
     print ('1')
