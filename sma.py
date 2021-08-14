@@ -1,9 +1,6 @@
 import alpaca_trade_api as api
 import threading
-import time
-import datetime
 import datetime as dt
-import bt 
 import pandas as pd 
 import pandas_datareader.data as web
 import talib
@@ -19,16 +16,10 @@ class RSI:
     self.alpaca = api.REST(API_Key, API_Secret, API_End, 'v2')
   def run(self):  
    start = dt.datetime(2000, 1, 1)
-   end = dt.datetime(2021,12,31)
+   end = dt.today()
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
-   df_RSI.to_numpy()
-   #signal = df_RSI.copy()
-   #signal[df_RSI.isnull()] = 0
-   #signal[df_RSI > 70] = 1
-   #signal[df_RSI < 30] = 2
-   #signal[(df_RSI <= 70) & (df_RSI >= 30)] = 3
-  
+   df_RSI.to_numpy()  
    
    if((df_RSI.values[-1]) > 70):
     print ('1')
