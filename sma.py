@@ -24,8 +24,8 @@ class RSI:
   
   
    df_RSI = talib.RSI(df['Close'])
-   if(pd.Series(df_RSI > 70).all() 
-    print ('1')
+   if(pd.Series(df_RSI > 70).all():
+    print ('1') 
    elif(pd.Series(df_RSI < 30).all():
     print ('2')
    elif[(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].all(): 
