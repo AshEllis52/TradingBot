@@ -4,7 +4,7 @@ import time
 import datetime
 import datetime as dt
 import bt 
-import pandas 
+import pandas as pd 
 import pandas_datareader.data as web
 import talib
 
@@ -21,31 +21,29 @@ class RSI:
    start = dt.datetime(2000, 1, 1)
    end = dt.datetime(2021,12,31)
    df = web.DataReader('TSLA', 'stooq', start, end)
+  
+  
    df_RSI = talib.RSI(df['Close'])
-   signal = df_RSI.copy()
-   signal[df_RSI.isnull()] = 0
-   signal[df_RSI > 70] = 1
-   signal[df_RSI < 30] = 2
-   signal[(df_RSI <= 70) & (df_RSI >= 30)] = 3
-   
-   
-   if(signal == 1): 
+   if(pd.Series(df_RSI > 70).all(): 
     print('1')
-    #order = self.api.submit_order(symbol='TSLA', qty=1, side='buy')
-    #rint(order)
-   elif(signal == 2):
+   elif(pd.Series(df_RSI < 30).all():
     print('2')
-   elif(signal == 3):
+   elif[(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].all():
     print('3')
        
 rsi = RSI()
 rsi.run()
 
 
+ #order = self.api.submit_order(symbol='TSLA', qty=1, side='buy')
+    #rint(order)
 
 
-
-
+ #signal = df_RSI.copy()
+   #signal[df_RSI.isnull()] = 0
+   #signal[df_RSI > 70] = 1
+   #signal[df_RSI < 30] = 2
+   #signal[(df_RSI <= 70) & (df_RSI >= 30)] = 3
 
 
 
