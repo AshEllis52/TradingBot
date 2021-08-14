@@ -20,24 +20,23 @@ class RSI:
    end = date.today()
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
-    
-   print (df_RSI.head) 
    df_RSI.to_numpy()  
-   print (df_RSI.values[14]) 
   
    if((df_RSI.values[14]) > 70):
-    print ('1')
+    print('Stock is over bought, selling postion') 
+    self.api.submit_order(symbol='TSLA', qty=10, side='sell')
+    
    elif((df_RSI.values[14]) < 30):
     print ('2')
-   elif[((df_RSI.values[14]) <= 70) & ((df_RSI.values[-1]) >= 30)]:
+   elif[((df_RSI.values[14]) <= 70) & ((df_RSI.values[14]) >= 30)]:
     print ('3')
        
 rsi = RSI()
 rsi.run()
 
 
- #order = self.api.submit_order(symbol='TSLA', qty=1, side='buy')
-    #rint(order)
+ order = self.api.submit_order(symbol='TSLA', qty=1, side='buy')
+    print(order)
 
 
  
