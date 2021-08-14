@@ -25,11 +25,11 @@ class RSI:
    df_RSI.to_numpy()  
    print (df_RSI.values[14]) 
   
-   if((df_RSI.values[-1]) > 70):
+   if((df_RSI.values[14]) > 70):
     print ('1')
-   elif((df_RSI.values[-1]) < 30):
+   elif((df_RSI.values[14]) < 30):
     print ('2')
-   elif[((df_RSI.values[-1]) <= 70) & ((df_RSI.values[-1]) >= 30)]:
+   elif[((df_RSI.values[14]) <= 70) & ((df_RSI.values[-1]) >= 30)]:
     print ('3')
        
 rsi = RSI()
