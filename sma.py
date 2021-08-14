@@ -23,11 +23,11 @@ class RSI:
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
    
-   if(pd.Series(df_RSI > 70).all()
-    pass
-   elif(pd.Series(df_RSI < 30).all():
+   if(pd.Series(df_RSI > 70).all()):
+    print ('1')
+   elif(pd.Series(df_RSI < 30).all()):
     print ('2')
-   elif[(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].all(): 
+   elif([(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].all()): 
     print ('3')
        
 rsi = RSI()
