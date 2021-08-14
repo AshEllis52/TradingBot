@@ -30,12 +30,12 @@ class RSI:
    #signal[(df_RSI <= 70) & (df_RSI >= 30)] = 3
   
    
-   if((df_RSI.values[-1]) > 0):
+   if((df_RSI.values[-1]) > 70):
     print ('1')
-   #elif(pd.Series(df_RSI < 30).all()):
-    #print ('2')
-   #elif([(pd.Series(df_RSI <= 70)) & (pd.Series(df_RSI >= 30))].any()): 
-    #print ('3')
+   elif((df_RSI.values[-1]) < 30):
+    print ('2')
+   elif[((df_RSI.values[-1]) < = 70) & (df_RSI.values[-1] >= 30))] 
+    print ('3')
        
 rsi = RSI()
 rsi.run()
