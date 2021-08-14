@@ -23,7 +23,7 @@ class RSI:
    df = web.DataReader('TSLA', 'stooq', start, end)
    df_RSI = talib.RSI(df['Close'])
    df1 = df_RSI.to_numpy()
-   print(df1.vaules[-1])
+   print(df1.index[-1])
    #signal = df_RSI.copy()
    #signal[df_RSI.isnull()] = 0
    #signal[df_RSI > 70] = 1
