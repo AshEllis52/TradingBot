@@ -1,4 +1,4 @@
-import alpaca_trade_api as api
+import alpaca_trade_api as tradeapi
 import threading
 import datetime as dt
 from datetime import date 
@@ -6,10 +6,8 @@ import pandas as pd
 import pandas_datareader.data as web
 import talib
 
-API_Key = 'PKZMPG3T5B4KNAFUTRF3'
-API_Secret = 'JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN'
-API_End = 'https://paper-api.alpaca.markets'
-api = api.REST(API_Key, API_Secret, API_End, 'v2')
+alpaca_endpoint = 'https://paper-api.alpaca.markets'
+api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
 
 
 class RSI:
