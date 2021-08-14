@@ -11,7 +11,7 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 
 
 class RSI:
-  def __init__(self):
+  #def __init__(self):
     #self.alpaca = api.REST(API_Key, API_Secret, API_End, 'v2')
   def run(self):  
    start = dt.datetime(2021, 1, 1)
