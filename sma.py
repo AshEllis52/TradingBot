@@ -23,7 +23,7 @@ class RSI:
     
    print (df_RSI.head) 
    df_RSI.to_numpy()  
-   print (df_RSI.values[13]) 
+   print (df_RSI.values[14]) 
   
    if((df_RSI.values[-1]) > 70):
     print ('1')
