@@ -18,15 +18,15 @@ class RSI:
    df_RSI = talib.RSI(df['Close'])
    df_RSI.to_numpy()  
   
-   if((df_RSI.values[14]) > 70):
+   if((df_RSI.values[13]) > 70):
     print('Stock is over bought, selling postion') 
     api.submit_order(symbol='TSLA', qty=10, side='sell')
     
-   elif((df_RSI.values[14]) < 30):
+   elif((df_RSI.values[13]) < 30):
     print('Stock is over sold, buying postion') 
     api.submit_order(symbol='TSLA', qty=10, side='buy')
     
-   elif[((df_RSI.values[14]) <= 70) & ((df_RSI.values[14]) >= 30)]:
+   elif[((df_RSI.values[13]) <= 70) & ((df_RSI.values[13]) >= 30)]:
     print('Holding stock') 
        
 rsi = RSI()
