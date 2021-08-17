@@ -1,5 +1,4 @@
 import alpaca_trade_api as tradeapi
-import threading
 import datetime as dt
 from datetime import date 
 import pandas as pd 
@@ -20,15 +19,15 @@ class EMA:
    df_EMAS.to_numpy()  
    df_EMAL.to_numpy()
   
-   if((df_EMAS.values[12]) > (df_EMAL.values[26])):
+   if((df_EMAS.values[11]) > (df_EMAL.values[25])):
     print('The trend indicates a buying postion, buying stock') 
     api.submit_order(symbol='AAPL', qty=10, side='buy')
     
-   elif((df_EMAL.values[26]) > (df_EMAS.values[12])):
+   elif((df_EMAL.values[25]) > (df_EMAS.values[11])):
     print('The trend indicates a selling  postion, selling stock') 
     api.submit_order(symbol='AAPL', qty=10, side='sell')
     
-   elif((df_EMAL.values[26]) == (df_EMAS.values[12])):
+   elif((df_EMAL.values[25]) == (df_EMAS.values[11])):
     print('Holding stock') 
        
 ema = EMA()
