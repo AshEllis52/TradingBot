@@ -18,7 +18,7 @@ class BB:
    upper.to_numpy()
    mid.to_numpy()
    lower.to_numpy()
-   print(upper.index[66]) 
+   print(upper.index[5]) 
    print(mid.index[19]) 
    print(lower.index[19]) 
    
