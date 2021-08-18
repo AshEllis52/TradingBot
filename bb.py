@@ -15,9 +15,12 @@ class BB:
    end = date.today()
    df = web.DataReader('BA', 'stooq', start, end)
    upper, mid, lower = talib.BBANDS(df['Close'], nbdevup=2, nbdevdn=2, timeperiod=20)
-   print(upper) 
-   print(mid) 
-   print(lower) 
+   upper.to_numpy()
+   mid.to_numpy()
+   lower.to_numpy()
+   print(upper.vaules[13]) 
+   print(mid.vaules[20]) 
+   print(lower.values[11]) 
    
     
   
