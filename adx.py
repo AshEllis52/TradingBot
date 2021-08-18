@@ -1,5 +1,4 @@
 import alpaca_trade_api as tradeapi
-import threading
 import datetime as dt
 from datetime import date 
 import pandas as pd 
