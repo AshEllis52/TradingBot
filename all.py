@@ -53,16 +53,6 @@ class EMA:
    elif((df_EMAL.values[25]) == (df_EMAS.values[11])):
     print('Holding stock') 
        
-import alpaca_trade_api as tradeapi
-import datetime as dt
-from datetime import date 
-import pandas as pd 
-import pandas_datareader.data as web
-import talib
-
-alpaca_endpoint = 'https://paper-api.alpaca.markets'
-api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
-
 
 class RSI:
   def run(self):  
