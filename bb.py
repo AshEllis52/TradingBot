@@ -28,7 +28,7 @@ class BB:
     print("Stock is below mean value, buying position") #if SMA(mid) today is below what lower was 5 days ago stock is underbought  
     api.submit_order(symbol='BA', qty=10, side='buy')
     
-   elif [((mid.values[19]) > lower.values[24]) & ((mid.values[19] < upper.values[24])]: 
+   elif [((mid.values[19]) > lower.values[24]) & ((mid.values[19] < upper.values[24]))]: 
     print("Stock is within mean value, holding position") #if SMA(mid) today is between  lower & upper 5 days ago stock is at mean value  
        
 bb = BB()
