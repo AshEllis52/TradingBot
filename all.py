@@ -72,10 +72,43 @@ class RSI:
     
    elif[((df_RSI.values[13]) <= 70) & ((df_RSI.values[13]) >= 30)]:
     print('Holding stock') 
+    
+class BB:
+  def run(self):  
+   start = dt.datetime(2021, 1, 1)
+   end = date.today()
+   df = web.DataReader('BA', 'stooq', start, end)
+   upper, mid, lower = talib.BBANDS(df['Close'], nbdevup=2, nbdevdn=2, timeperiod = 20)
+   upper.to_numpy()
+   mid.to_numpy()
+   lower.to_numpy()
+  
+  
+   if((mid.values[19]) > (upper.values[24])): #if SMA(mid) today is above what upper was 5 days ago stock is overbought 
+    print("Stock is above mean value, selling position")
+    api.submit_order(symbol='BA', qty=10, side='sell')
+    
+   elif (mid.values[19] < lower.values[24]):
+    print("Stock is below mean value, buying position") #if SMA(mid) today is below what lower was 5 days ago stock is underbought  
+    api.submit_order(symbol='BA', qty=10, side='buy')
+    
+   elif [((mid.values[19]) > lower.values[24]) & ((mid.values[19] < upper.values[24]))]: 
+    print("Stock is within mean value, holding position") #if SMA(mid) today is between  lower & upper 5 days ago stock is at mean value  
        
+   
 rsi = RSI()
 adx = ADX()
 ema = EMA()
+bb = BB()
+
+print("Running EMA cross over strategy")
 ema.run()
+
+print("Running RSI trend strategy")
 rsi.run()
+
+print("Running ADX momentum strategy")
 adx.run()
+
+print("Running Bollinger mean revision strategy")
+bb.run() 
