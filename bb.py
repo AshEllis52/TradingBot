@@ -12,7 +12,7 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 class BB:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
-   end = date.today(df['Close'])
+   end = date.today()
    df = web.DataReader('BA', 'stooq', start, end)
    upper, mid, lower = talib.BBANDS(df['Close'], nbdevup=2, nbdevdn=2, timeperiod = 20)
    upper.to_numpy()
