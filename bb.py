@@ -31,7 +31,7 @@ class BB:
     print("Stock is below mean value, buying position") #if price today is below the lower band  stock is oversold 
     api.submit_order(symbol='BA', qty=10, side='buy')
     
-   elif [((todayPrice.values[0]) < (upper.values[19]) & ((todayPrice.values[0]) > (lower.values[19])]: 
+   elif [((todayPrice.values[0]) < (upper.values[19]) & (todayPrice.values[0]) > (lower.values[19])]: 
     print("Stock is within mean value, holding position") #if price today is between upper and lower bands stock is within mean value  
        
 bb = BB()
