@@ -16,7 +16,8 @@ class BB:
    df = web.DataReader('BA', 'stooq', start, end)
    upper, mid, lower = talib.BBANDS(df['Close'], nbdevup=2, nbdevdn=2, timeperiod = 20)
    todayPrice = df['Close']
-   print [todayPrice]
+   todayPrice.to_numpy()
+   print (todayPrice.values[0])
    #upper.to_numpy()
    #mid.to_numpy()
    #lower.to_numpy()
