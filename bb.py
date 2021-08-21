@@ -18,21 +18,21 @@ class BB:
    todayPrice = df['Close']
    todayPrice.to_numpy()
    print (todayPrice.values[0])
-   #upper.to_numpy()
-   #mid.to_numpy()
-   #lower.to_numpy()
+   upper.to_numpy()
+   mid.to_numpy()
+   lower.to_numpy()
   
   
-   #if((mid.values[19]) > (upper.values[24])): #if SMA(mid) today is above what upper was 5 days ago stock is overbought 
-    #print("Stock is above mean value, selling position")
-    #api.submit_order(symbol='BA', qty=10, side='sell')
+   if((todayPrice.values[0]) > (upper.values[19])): #if price today is above the upper band  stock is overbought 
+    print("Stock is above mean value, selling position")
+    api.submit_order(symbol='BA', qty=10, side='sell')
     
-   #elif (mid.values[19] < lower.values[24]):
-    #print("Stock is below mean value, buying position") #if SMA(mid) today is below what lower was 5 days ago stock is underbought  
-    #api.submit_order(symbol='BA', qty=10, side='buy')
+   elif((todayPrice.values[0]) < (lower.values[19])):
+    print("Stock is below mean value, buying position") #if price today is below the lower band  stock is oversold 
+    api.submit_order(symbol='BA', qty=10, side='buy')
     
-   #elif [((mid.values[19]) > lower.values[24]) & ((mid.values[19] < upper.values[24]))]: 
-    #print("Stock is within mean value, holding position") #if SMA(mid) today is between  lower & upper 5 days ago stock is at mean value  
+   elif [((todayPrice.values[0]) < (upper.values[19]) & ((todayPrice.values[0]) > (lower.values[19]))]: 
+    print("Stock is within mean value, holding position") #if price today is between upper and lower bands stock is within mean value  
        
 bb = BB()
 bb.run()
