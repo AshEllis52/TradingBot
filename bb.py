@@ -17,22 +17,21 @@ class BB:
    upper, mid, lower = talib.BBANDS(df['Close'], nbdevup=2, nbdevdn=2, timeperiod = 20)
    todayPrice = df['Close']
    todayPrice.to_numpy()
-   print (todayPrice.values[0])
    upper.to_numpy()
    mid.to_numpy()
    lower.to_numpy()
   
   
-   if((todayPrice.values[0]) > (upper.values[19])): #if price today is above the upper band  stock is overbought 
+   if((todayPrice.values[0]) > (upper.values[19])): 
     print("Stock is above mean value, selling position")
     api.submit_order(symbol='BA', qty=10, side='sell')
     
    elif((todayPrice.values[0]) < (lower.values[19])):
-    print("Stock is below mean value, buying position") #if price today is below the lower band  stock is oversold 
+    print("Stock is below mean value, buying position") 
     api.submit_order(symbol='BA', qty=10, side='buy')
     
    elif [((todayPrice.values[0]) < (upper.values[19])) & ((todayPrice.values[0]) > (lower.values[19]))]: 
-    print("Stock is within mean value, holding position") #if price today is between upper and lower bands stock is within mean value  
+    print("Stock is within mean value, holding position")  
        
 bb = BB()
 bb.run()
