@@ -18,17 +18,16 @@ class DI:
    di1 = talib.MINUS_DI(df['High'], df['Low'], df['Close'])
    di.to_numpy()
    di1.to_numpy()
-   print(di1.values[13])
-   print(di.values[14])
-   if (di.values[13] > di1.values[13]):
+  
+   if (di.values[14] > di1.values[14]):
     print('The trend indicates an uptrend, buying  stock') 
     api.submit_order(symbol='MSFT', qty=10, side='buy')
    
-   elif (di1.values[13] > di.values[13]):
+   elif (di1.values[14] > di.values[14]):
     print('The trend indicates a downtrend, selling  stock') 
     api.submit_order(symbol='MSFT', qty=10, side='sell')
    
-   elif (di.values[13] == di1.values[13]):
+   elif (di.values[14] == di1.values[14]):
     print('No trend indentified, holding position') 
   
   
