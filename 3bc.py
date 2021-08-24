@@ -9,7 +9,7 @@ alpaca_endpoint = 'https://paper-api.alpaca.markets'
 api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
 
 
-class 3BC:
+class BC:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
    end = date.today()
@@ -19,5 +19,5 @@ class 3BC:
 
   
   
-3bc = 3BC()
-3bc.run()
+bc3 = BC()
+bc3.run()
