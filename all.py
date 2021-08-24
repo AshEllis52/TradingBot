@@ -139,5 +139,5 @@ adx.run()
 print("Running DI+/DI- crossover strategy")
 di.run()
 
-print("Running Bollinger mean revision strategy")
+print("Running Bollinger Bands mean revision strategy")
 bb.run() 
