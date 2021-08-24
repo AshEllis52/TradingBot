@@ -14,7 +14,7 @@ class BC:
    start = dt.datetime(2021, 1, 1)
    end = date.today()
    df = web.DataReader('ATVI', 'stooq', start, end)
-   bc = talib.CDL3BLACKCROWS(df['Open'], df['High'], df['Low'], df['Close'])
+   bc = talib.PLUS_DI(df['High'], df['Low'], df['Close'])
    print(bc)
 
   
