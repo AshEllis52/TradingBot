@@ -18,7 +18,8 @@ class DI:
    di1 = talib.MINUS_DI(df['High'], df['Low'], df['Close'], timeperiod = 14)
    di.to_numpy()
    di1.to_numpy()
-   
+   print(di1)
+   print(di)
    if (di.values[13] > di1.values[13]):
     print('The trend indicates an uptrend, buying  stock') 
     api.submit_order(symbol='MSFT', qty=10, side='buy')
