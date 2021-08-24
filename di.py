@@ -27,7 +27,7 @@ class DI:
     print('The trend indicates a downtrend, selling  stock') 
     api.submit_order(symbol='MSFT', qty=10, side='sell')
    
-   elif (di.values[13] = di1.values[13]):
+   elif (di.values[13] == di1.values[13]):
     print('No trend indentified, holding position') 
   
   
