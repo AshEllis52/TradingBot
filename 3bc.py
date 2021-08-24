@@ -13,7 +13,7 @@ class BC:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
    end = date.today()
-   df = web.DataReader('PFE', 'stooq', start, end)
+   df = web.DataReader('ATVI', 'stooq', start, end)
    bc = talib.CDL3BLACKCROWS(df['Open'], df['High'], df['Low'], df['Close'])
    print(bc)
 
