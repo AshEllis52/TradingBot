@@ -73,6 +73,29 @@ class RSI:
    elif[((df_RSI.values[13]) <= 70) & ((df_RSI.values[13]) >= 30)]:
     print('Holding stock') 
     
+class DI:
+  def run(self):  
+   start = dt.datetime(2021, 1, 1)
+   end = date.today()
+   df = web.DataReader('MSFT', 'stooq', start, end)
+   di = talib.PLUS_DI(df['High'], df['Low'], df['Close'])
+   di1 = talib.MINUS_DI(df['High'], df['Low'], df['Close'])
+   di.to_numpy()
+   di1.to_numpy()
+  
+   if (di.values[14] > di1.values[14]):
+    print('The trend indicates an uptrend, buying  stock') 
+    api.submit_order(symbol='MSFT', qty=10, side='buy')
+   
+   elif (di1.values[14] > di.values[14]):
+    print('The trend indicates a downtrend, selling  stock') 
+    api.submit_order(symbol='MSFT', qty=10, side='sell')
+   
+   elif (di.values[14] == di1.values[14]):
+    print('No trend indentified, holding position') 
+  
+  
+    
 class BB:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
@@ -102,8 +125,9 @@ rsi = RSI()
 adx = ADX()
 ema = EMA()
 bb = BB()
+di = DI()
 
-print("Running EMA cross over strategy")
+print("Running EMA crossover strategy")
 ema.run()
 
 print("Running RSI trend strategy")
@@ -111,6 +135,9 @@ rsi.run()
 
 print("Running ADX momentum strategy")
 adx.run()
+
+print("Running DI+/DI- crossover strategy")
+di.run()
 
 print("Running Bollinger mean revision strategy")
 bb.run() 
