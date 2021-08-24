@@ -15,7 +15,7 @@ class BC:
    end = date.today()
    df = web.DataReader('ATVI', 'stooq', start, end)
    bc = talib.PLUS_DI(df['High'], df['Low'], df['Close'])
-   bc1 = talib.PLUS_DM(df['High'], df['Low'], df['Close'])
+   bc1 = talib.MINUS_DI(df['High'], df['Low'], df['Close'])
    print(bc)
    print(bc1)
   
