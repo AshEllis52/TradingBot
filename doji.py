@@ -13,7 +13,7 @@ class DOJI:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
    end = date.today()
-   df = web.DataReader('SPY', 'quandl', start, end)
+   df = web.DataReader('SPY', 'google', start, end)
    df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close']) 
    print(df_d)
     
