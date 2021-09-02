@@ -38,6 +38,8 @@ class DOJI:
    print('Searching historical values that do not equal zero so that we can see days where the conditions of Doji are met') 
    print(df_d[df_d !=0])
    print(df_e[df_e !=0])
+   print(df_d.values[0])
+   print(df_e.values[0])
 
 doji = DOJI()
 doji.run()
