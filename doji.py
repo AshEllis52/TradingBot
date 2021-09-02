@@ -24,15 +24,15 @@ class DOJI:
    df_d.to_numpy()
    df_e.to_numpy()
    
-   if [(df_d.values[0] == 100) or (df_e.values[0] == 100)]:
+   if [(df_d.values[0] == 100) & (df_e.values[0] == 100)]:
     print('The patterns indicates a trough postion on the Candlestick Graph, buying postion') 
     api.submit_order(symbol='DELL', qty=100, side='buy')
     
-   elif [(df_d.values[0] == -100) or (df_e.values[0] == -100)]:
+   elif [(df_d.values[0] == -100) & (df_e.values[0] == -100)]:
     print('The patterns indicates a peak postion on the Candlestick Graph, selling postion') 
     api.submit_order(symbol='DELL', qty=100, side='sell')  
     
-   elif [(df_d.values[0] == 0) or (df_e.values[0] == 0)]:
+   elif [(df_d.values[0] == 0) & (df_e.values[0] == 0)]:
     print('The patterns indicates holding postion')     
     
    print('Searching historical values that do not equal zero so that we can see days where the conditions of Doji are met') 
