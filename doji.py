@@ -28,8 +28,8 @@ class DOJI:
    #print('The patterns indicates a trough postion on the Candlestick Graph, buying postion') 
    #api.submit_order(symbol='SPY', qty=100, side='buy')
     
-   elif [((todayPrice.values[0]) < (upper.values[19])) & ((todayPrice.values[0]) > (lower.values[19]))]: 
-   print("Stock is within mean value, holding position")  
+   #elif [((todayPrice.values[0]) < (upper.values[19])) & ((todayPrice.values[0]) > (lower.values[19]))]: 
+   #print("Stock is within mean value, holding position")  
     
     
     
