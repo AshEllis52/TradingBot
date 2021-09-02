@@ -20,7 +20,7 @@ class DOJI:
    end = date.today()
    df = web.get_data_yahoo('SPY', start, end)
    df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close']) 
-   print(df_d)
+   print(df_d9df !=0])
 
 doji = DOJI()
 doji.run()
