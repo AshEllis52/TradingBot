@@ -19,8 +19,22 @@ class DOJI:
    start = dt.datetime(2021, 1, 1)
    end = date.today()
    df = web.get_data_yahoo('DELL', start, end)
-   df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close']) 
+   df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close'])
+   df_ms = talib.CDLMORNINGSTAR(df['Open'], df['High'], df['Low'], df['Close'])
+  
+   
+  #if (df_d = 100)
+   #print('The trend indicates moderate momentum, buying some stock') 
+    #api.submit_order(symbol='SPY', qty=20, side='buy')
+    
+    
+    
+    
+    
+    
    print(df_d[df_d !=0])
+   print(df_ms[df_ms !=0])
+   
 
 doji = DOJI()
 doji.run()
