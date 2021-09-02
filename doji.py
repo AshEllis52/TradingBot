@@ -18,25 +18,25 @@ class DOJI:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
    end = date.today()
-   df = web.get_data_yahoo('VOO', start, end)
+   df = web.get_data_yahoo('AMZN', start, end)
    df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close'])
-   df_ms = talib.CDL3BLACKCROWS(df['Open'], df['High'], df['Low'], df['Close'])
    df_e = talib.CDLENGULFING(df['Open'], df['High'], df['Low'], df['Close'])
+   df_d.to_numpy()
+   df_e.to_numpy()
   
-  
-  #if (df_d = 100)
-   #print('The trend indicates moderate momentum, buying some stock') 
-    #api.submit_order(symbol='SPY', qty=20, side='buy')
+  #if [(df_d.values[0] = 100) & (df_e.values[0] = 100)]:
+   #print('The patterns indicates a trough postion on the Candlestick Graph, buying postion') 
+   #api.submit_order(symbol='SPY', qty=100, side='buy')
     
-    
+   elif [((todayPrice.values[0]) < (upper.values[19])) & ((todayPrice.values[0]) > (lower.values[19]))]: 
+   print("Stock is within mean value, holding position")  
     
     
     
     
    print(df_d[df_d !=0])
-   print(df_ms[df_ms !=0])
    print(df_e[df_e !=0])
-   
+   print(df_d.values[0])
 
 doji = DOJI()
 doji.run()
