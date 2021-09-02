@@ -18,7 +18,7 @@ class DOJI:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
    end = date.today()
-   df = web.get_data_yahoo('SPY', start, end)
+   df = web.get_data_yahoo('DELL', start, end)
    df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close']) 
    print(df_d9df !=0])
 
