@@ -20,7 +20,7 @@ class DOJI:
    end = date.today()
    df = web.get_data_yahoo('VOO', start, end)
    df_d = talib.CDLDOJISTAR(df['Open'], df['High'], df['Low'], df['Close'])
-   df_ms = talib.CDLMORNINGSTAR(df['Open'], df['High'], df['Low'], df['Close'])
+   df_ms = talib.CDLIDENTICAL3CROWS(df['Open'], df['High'], df['Low'], df['Close'])
    df_e = talib.CDLENGULFING(df['Open'], df['High'], df['Low'], df['Close'])
   
   
