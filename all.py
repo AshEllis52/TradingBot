@@ -79,7 +79,7 @@ class DI:
   def run(self):  
    start = dt.datetime(2021, 1, 1)
    end = date.today()
-   df = web.DataReader('MSFT', 'stooq', start, end)
+   df = web.get_data_yahoo('MSFT', start, end)
    di = talib.PLUS_DI(df['High'], df['Low'], df['Close'])
    di1 = talib.MINUS_DI(df['High'], df['Low'], df['Close'])
    di.to_numpy()
