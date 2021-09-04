@@ -14,10 +14,10 @@ class ADX:
    start = dt.datetime(2021, 1, 1)
    end = date.today()
    df = web.DataReader('SPY', 'stooq', start, end)
-   adx = talib.ADX(df['High'], df['Low'], df['Close'], timeperiod = 21)
+   adx = talib.ADX(df['High'], df['Low'], df['Close'], timeperiod = 20)
    adx.to_numpy()
   
-   print (adx.values[45])
+   print (adx.values[19])
    print (adx.values[40])
    print (adx.values[35])
    #if((adx.values[20]) <= 25):
