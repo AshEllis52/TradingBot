@@ -19,7 +19,7 @@ class EMA:
    df_EMAS.to_numpy()  
    df_EMAL.to_numpy()
   
-   print(df_EMAS.values[11])
+   print(df_EMAS.values[10])
    print(df_EMAL.values[25])
    #if((df_EMAS.values[11]) > (df_EMAL.values[25])):
     #print('The trend indicates a buying postion, buying stock') 
