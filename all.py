@@ -134,25 +134,25 @@ class DOJI:
    df_e.to_numpy()
    
    if (df_d.values[0] > 0):
-    print('The patterns indicates a trough postion on the Candlestick Graph, buying postion') 
+    print('The patterns indicates a Dragonfly Doji on the Candlestick Graph, buying postion') 
     api.submit_order(symbol='DELL', qty=100, side='buy')
     
    elif (df_e.values[0] > 0):
-    print('The patterns indicates a trough postion on the Candlestick Graph, buying postion') 
+    print('The patterns indicates an Bullish Engulfing Candlestick on the Candlestick Graph, buying postion') 
     api.submit_order(symbol='DELL', qty=100, side='buy') 
    
    elif (df_d.values[0] < 0):
-    print('The patterns indicates a peak postion on the Candlestick Graph, selling postion') 
+    print('The patterns indicates a Gravestone Doji on the Candlestick Graph, selling postion') 
     api.submit_order(symbol='DELL', qty=100, side='sell')  
     
    elif (df_e.values[0] < 0):
-    print('The patterns indicates a peak postion on the Candlestick Graph, selling postion') 
+    print('The patterns indicates a Bearish Engulfing Candlestick on the Candlestick Graph, selling postion') 
     api.submit_order(symbol='DELL', qty=100, side='sell')  
     
    elif [(df_d.values[0] == 0) & (df_e.values[0] == 0)]:
-    print('The patterns indicates holding postion')     
+    print('The patterns indicates both a Long Legged Doji and no Engulfing Candlestick, holding position')     
     
-   print('Searching historical values that do not equal zero so that we can see days where the conditions of Doji are met') 
+   print('Searching historical values that do not equal zero so that we can see days where the conditions of Dojistar and Engulfing are met') 
    print(df_d[df_d !=0])
    print(df_e[df_e !=0])
 
