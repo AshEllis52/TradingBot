@@ -41,7 +41,7 @@ class DOJI:
    elif [(df_d.values[0] == 0) & (df_e.values[0] == 0)]:
     print('The patterns indicates both a Long Legged Doji and no Engulfing Candlestick, holding position')     
     
-   print('Searching historical values that do not equal zero so that we can see days where the conditions of Dojistar and engulfing are met') 
+   print('Searching historical values that do not equal zero so that we can see days where the conditions of Dojistar and Engulfing are met') 
    print(df_d[df_d !=0])
    print(df_e[df_e !=0])
 
