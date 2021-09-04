@@ -17,9 +17,9 @@ class ADX:
    adx = talib.ADX(df['High'], df['Low'], df['Close'], timeperiod = 21)
    adx.to_numpy()
   
-   print (adx.values[20])
-   print (adx.values[21])
-   print (adx.values[22])
+   print (adx.values[23])
+   print (adx.values[24])
+   print (adx.values[25])
    #if((adx.values[20]) <= 25):
     #print('The trend indicates little momentum, holding position') 
     
