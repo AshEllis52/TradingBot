@@ -17,20 +17,23 @@ class ADX:
    adx = talib.ADX(df['High'], df['Low'], df['Close'], timeperiod = 21)
    adx.to_numpy()
   
-   if((adx.values[20]) <= 25):
-    print('The trend indicates little momentum, holding position') 
+   print (adx.values[20])
+   print (adx.values[0])
+   print (adx.values[15])
+   #if((adx.values[20]) <= 25):
+    #print('The trend indicates little momentum, holding position') 
     
-   elif[((adx.values[20]) >= 26) or ((adx.values[20]) <= 50)]:
-    print('The trend indicates moderate momentum, buying some stock') 
-    api.submit_order(symbol='SPY', qty=20, side='buy')
+   #elif[((adx.values[20]) >= 26) or ((adx.values[20]) <= 50)]:
+    #print('The trend indicates moderate momentum, buying some stock') 
+    #api.submit_order(symbol='SPY', qty=20, side='buy')
     
-   elif[((adx.values[20]) >= 51) or ((adx.values[20]) <= 75)]:
-    print('The trend indicates strong momentum, buying stock') 
-    api.submit_order(symbol='SPY', qty=30, side='buy') 
+   #elif[((adx.values[20]) >= 51) or ((adx.values[20]) <= 75)]:
+    #print('The trend indicates strong momentum, buying stock') 
+    #api.submit_order(symbol='SPY', qty=30, side='buy') 
        
-   elif((adx.values[20]) > 75):
-    print('The trend indicates very strong momentum, buying a lot of stock') 
-    api.submit_order(symbol='SPY', qty=50, side='buy')   
+   #elif((adx.values[20]) > 75):
+    #print('The trend indicates very strong momentum, buying a lot of stock') 
+    #api.submit_order(symbol='SPY', qty=50, side='buy')   
     
 adx = ADX()
 adx.run()
