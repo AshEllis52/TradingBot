@@ -17,7 +17,7 @@ class ADX:
    adx = talib.ADX(df['High'], df['Low'], df['Close'], timeperiod = 21)
    adx.to_numpy()
   
-   print (adx.values[23])
+   print (adx[adx !=nan])
    print (adx.values[24])
    print (adx.values[25])
    #if((adx.values[20]) <= 25):
