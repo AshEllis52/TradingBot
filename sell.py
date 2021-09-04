@@ -13,7 +13,7 @@ api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPF
 
 def sell_aapl(): 
   print('Selling Apple')
-  order = api.submit_order(symbol='SPY', qty=140, side='sell')
+  order = api.submit_order(symbol='TSLA', qty=30, side='sell')
   print(order)
   
 schedule.every(1).minute.do(sell_aapl)
