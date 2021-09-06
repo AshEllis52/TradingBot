@@ -8,7 +8,7 @@ import yfinance as yfin
 yfin.pdr_override()
 
 alpaca_endpoint = 'https://paper-api.alpaca.markets'
-api = tradeapi.REST('PKZMPG3T5B4KNAFUTRF3','JIvx2wgkPXtzGl9uy1ZSEryA5OBv9XZ37XPFwQGN', alpaca_endpoint)
+api = tradeapi.REST('PK0KEA10E87WWOX5YZF4','Jep1lkIQJkjsnx1hoObRyKcG5DNztBAs27RPE2q7', alpaca_endpoint)
 
 
 class ADX:
